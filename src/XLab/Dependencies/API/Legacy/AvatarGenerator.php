@@ -64,6 +64,6 @@ class AvatarGenerator implements AvatarGeneratorInterface
      */
     private function generateAvatarPath(User $user)
     {
-        return sprintf('%s%s%s.png', $this->directoryPath, DIRECTORY_SEPARATOR, $user->getId());
+        return sprintf('%s/%s.png', $this->directoryPath, $user->getId());
     }
 }
