@@ -2,12 +2,14 @@
 
 namespace XLab\Dependencies\API\Proper;
 
+use XLab\Dependencies\API\User;
+
 interface AvatarRetrieverInterface
 {
     /**
-     * @param \XLab\Dependencies\API\User $user
+     * @param User $user
      *
      * @return Avatar
      */
-    public function getAvatar(\XLab\Dependencies\API\User $user);
+    public function getAvatar(User $user);
 }
