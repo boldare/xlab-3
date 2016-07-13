@@ -1,9 +1,11 @@
 <?php
 
-namespace XLab\Dependencies\API\Proper;
-
 use GuzzleHttp\ClientInterface;
+use XLab\Dependencies\API\Proper\Avatar;
+use XLab\Dependencies\API\Proper\AvatarRetrieverInterface;
 use XLab\Dependencies\API\User;
+
+namespace XLab\Dependencies\API\Proper;
 
 class AdorableAvatarsApiRetriever implements AvatarRetrieverInterface
 {

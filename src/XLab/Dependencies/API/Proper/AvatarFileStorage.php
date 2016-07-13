@@ -1,8 +1,10 @@
 <?php
 
-namespace XLab\Dependencies\API\Proper;
-
 use Symfony\Component\Filesystem\Filesystem;
+use XLab\Dependencies\API\Proper\Avatar;
+use XLab\Dependencies\API\Proper\AvatarStorageInterface;
+
+namespace XLab\Dependencies\API\Proper;
 
 class AvatarFileStorage implements AvatarStorageInterface
 {
@@ -55,7 +57,7 @@ class AvatarFileStorage implements AvatarStorageInterface
      */
     private function generateFilepath(Avatar $avatar)
     {
-        return sprintf('%s%s%s.png', $this->directory, DIRECTORY_SEPARATOR, $avatar->getName());
+        return sprintf('%s/%s.png', $this->directory, $avatar->getName());
     }
 
     private function createAvatarDirectoryIfNotPresent()
