@@ -1,15 +1,6 @@
 <?php
 
-require_once implode(DIRECTORY_SEPARATOR, [
-    __DIR__,
-    '..',
-    '..',
-    '..',
-    '..',
-    '..',
-    'vendor',
-    'autoload.php',
-]);
+require_once __DIR__.'/../../../../../vendor/autoload.php';
 
 $repository = new XLab\Dependencies\Database\Legacy\UserRepository(__DIR__ . '/../db.sqlite');
 $user = $repository->find(1);
