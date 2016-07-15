@@ -1,10 +1,10 @@
 <?php
 
+namespace XLab\Dependencies\API\Proper;
+
 use Symfony\Component\Filesystem\Filesystem;
 use XLab\Dependencies\API\Proper\Avatar;
 use XLab\Dependencies\API\Proper\AvatarStorageInterface;
-
-namespace XLab\Dependencies\API\Proper;
 
 class AvatarFileStorage implements AvatarStorageInterface
 {
