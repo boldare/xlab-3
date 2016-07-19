@@ -2,17 +2,21 @@
 
 require_once __DIR__ . '/../../../../vendor/autoload.php';
 
-$firstBlogPost = new \XLab\Mocks\Traits\BlogPost('first', 'lorem ipsum', 'me!');
+use XLab\Mocks\Traits\BlogPost;
+use XLab\Mocks\Traits\Product;
+use XLab\Mocks\Traits\SearchEngine;
+
+$firstBlogPost = new BlogPost('first', 'lorem ipsum', 'me!');
 $firstBlogPost->setTags(['sweet', 'check it out']);
-$secondBlogPost = new \XLab\Mocks\Traits\BlogPost('another post', 'dolor sit amet', 'me again!');
+$secondBlogPost = new BlogPost('another post', 'dolor sit amet', 'me again!');
 $secondBlogPost->setTags(['booring']);
 
-$firstProduct = new \XLab\Mocks\Traits\Product('lawn mower', 'gardening', 3999);
+$firstProduct = new Product('lawn mower', 'gardening', 3999);
 $firstProduct->setTags(['first', 'lawn', 'garden', 'trim']);
-$secondProduct = new \XLab\Mocks\Traits\Product('tube', 'equipmment', 999);
+$secondProduct = new Product('tube', 'equipmment', 999);
 $secondProduct->setTags(['water', 'watering']);
 
-$searchEngine = new \XLab\Mocks\Traits\SearchEngine([
+$searchEngine = new SearchEngine([
     $firstBlogPost,
     $secondBlogPost,
     $firstProduct,

@@ -7,7 +7,7 @@ use XLab\Mocks\Traits\Taggable;
 class TaggableTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject
+     * @var \PHPUnit_Framework_MockObject_MockObject|Taggable
      */
     private $object;
 
