@@ -10,10 +10,13 @@ use XLab\Dependencies\API\User;
 
 class AvatarGeneratorTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @link https://phpunit.de/manual/current/en/test-doubles.html
+     */
     public function testGeneratePHPUnitMockObject()
     {
-        $retriever = $this->getMockBuilder(AvatarRetrieverInterface::class)->getMock();
-        $storage = $this->getMockBuilder(AvatarStorageInterface::class)->getMock();
+        $retriever = $this->createMock(AvatarRetrieverInterface::class);
+        $storage = $this->createMock(AvatarStorageInterface::class);
         $generator = new AvatarGenerator($retriever, $storage);
 
         $user = new User(123, 'user@example.com');
@@ -32,6 +35,9 @@ class AvatarGeneratorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('filepath', $user->getAvatarPath());
     }
 
+    /**
+     * @link https://github.com/phpspec/prophecy#how-to-use-it
+     */
     public function testGenerateProphecy()
     {
         $retriever = $this->prophesize(AvatarRetrieverInterface::class);
@@ -48,6 +54,9 @@ class AvatarGeneratorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('filepath', $user->getAvatarPath());
     }
 
+    /**
+     * @link http://docs.mockery.io/en/latest/reference/startup_methods.html
+     */
     public function testGenerateMockery()
     {
         $user = new User(123, 'user@example.com');
@@ -71,6 +80,9 @@ class AvatarGeneratorTest extends \PHPUnit_Framework_TestCase
         \Mockery::close();
     }
 
+    /**
+     * @link http://phake.readthedocs.io/en/latest/mocks.html
+     */
     public function testGeneratePhake()
     {
         $retriever = \Phake::mock(AvatarRetrieverInterface::class);
