@@ -17,7 +17,6 @@
     "require": {
         "guzzlehttp/guzzle": "^6.2",
         "symfony/filesystem": "^3.1",
-        "doctrine/dbal": "^2.5",
-        "psr/log": "^1.0"
+        "doctrine/dbal": "^2.5"
     }
 }
