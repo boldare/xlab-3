@@ -1,3 +1,5 @@
 /nbproject/
 /vendor/
-/src/XLab/Dependencies/API/avatars/
+/src/XLab/Dependencies/API/avatars/*
+/tests/XLab/Dependencies/API/Legacy/avatars/*
+!.gitkeep
