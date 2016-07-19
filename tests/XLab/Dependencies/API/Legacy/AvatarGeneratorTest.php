@@ -2,13 +2,19 @@
 
 namespace XLab\Dependencies\API\Legacy\Tests;
 
+use XLab\Dependencies\API\Legacy\AvatarGenerator;
+use XLab\Dependencies\API\User;
+
 class AvatarGeneratorTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var \XLab\Dependencies\API\Legacy\AvatarGenerator
+     * @var AvatarGenerator
      */
     private $generator;
 
+    /**
+     * @var string
+     */
     private $directory;
 
     /**
@@ -16,8 +22,8 @@ class AvatarGeneratorTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->directory = __DIR__.DIRECTORY_SEPARATOR.'avatars';
-        $this->generator = new \XLab\Dependencies\API\Legacy\AvatarGenerator($this->directory);
+        $this->directory = __DIR__ . '/avatars';
+        $this->generator = new AvatarGenerator($this->directory);
     }
 
     /**
@@ -28,7 +34,7 @@ class AvatarGeneratorTest extends \PHPUnit_Framework_TestCase
         $dir = new \DirectoryIterator($this->directory);
 
         foreach ($dir as $file) {
-            if ($file->isFile()) {
+            if ($file->isFile() && 'png' === $file->getExtension()) {
                 unlink($file->getRealPath());
             }
         }
@@ -36,7 +42,7 @@ class AvatarGeneratorTest extends \PHPUnit_Framework_TestCase
 
     public function testGenerate()
     {
-        $user = new \XLab\Dependencies\API\User(123, 'user@example.com');
+        $user = new User(123, 'user@example.com');
         $result = $this->generator->generate($user);
 
         $this->assertFileExists($result);
