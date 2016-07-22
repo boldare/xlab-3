@@ -22,7 +22,7 @@ class UserRepositoryTest extends \PHPUnit_Framework_TestCase
 
     public function testFind()
     {
-        $result = $this->repository->find(1);
+        $result = $this->repository->findUser(1);
         $this->assertInstanceOf(User::class, $result);
         $this->assertSame(1, $result->getId());
         $this->assertEquals('user@example.com', $result->getEmail());
@@ -40,9 +40,9 @@ class UserRepositoryTest extends \PHPUnit_Framework_TestCase
     public function testSave(User $user)
     {
         $user->setAvatarPath('new_avatar_path');
-        $this->repository->save($user);
+        $this->repository->saveUser($user);
 
-        $result = $this->repository->find($user->getId());
+        $result = $this->repository->findUser($user->getId());
 
         $this->assertInstanceOf(User::class, $result);
         $this->assertEquals('new_avatar_path', $result->getAvatarPath());

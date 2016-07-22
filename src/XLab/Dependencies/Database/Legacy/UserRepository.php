@@ -23,7 +23,7 @@ class UserRepository implements UserRepositoryInterface
     /**
      * {@inheritdoc}
      */
-    public function find(int $id)
+    public function findUser(int $id)
     {
         $db = $this->openConnection();
         $stmt = $db->prepare('SELECT * FROM users WHERE id = :id');
@@ -37,7 +37,7 @@ class UserRepository implements UserRepositoryInterface
     /**
      * {@inheritdoc}
      */
-    public function save(User $user)
+    public function saveUser(User $user)
     {
         $db = $this->openConnection();
         $stmt = $db->prepare('UPDATE users SET email = :email, avatar_path = :avatar_path WHERE id = :id');

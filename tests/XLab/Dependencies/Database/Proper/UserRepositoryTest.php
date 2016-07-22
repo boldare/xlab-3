@@ -30,13 +30,13 @@ class UserRepositoryTest extends \PHPUnit_Framework_TestCase
 
     public function testFind()
     {
-        $this->database->select('users', ['id' => 123])->willReturn([
+        $this->database->find('users', 123)->willReturn([
             'id' => 123,
             'email' => 'user@example.com',
             'avatar_path' => 'avatar_path',
         ]);
 
-        $result = $this->repository->find(123);
+        $result = $this->repository->findUser(123);
 
         $this->assertInstanceOf(User::class, $result);
         $this->assertSame(123, $result->getId());
@@ -50,13 +50,13 @@ class UserRepositoryTest extends \PHPUnit_Framework_TestCase
 
         $this->database->update(
             'users',
-            ['id' => 123],
+            123,
             [
                 'email' => 'new@example.com',
                 'avatar_path' => 'new_avatar_path'
             ]
         )->shouldBeCalled();
 
-        $this->repository->save($user);
+        $this->repository->saveUser($user);
     }
 }

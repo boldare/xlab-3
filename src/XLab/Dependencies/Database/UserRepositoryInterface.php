@@ -11,10 +11,10 @@ interface UserRepositoryInterface
      *
      * @return User
      */
-    public function find(int $id);
+    public function findUser(int $id);
 
     /**
      * @param User $user
      */
-    public function save(User $user);
+    public function saveUser(User $user);
 }

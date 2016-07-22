@@ -6,16 +6,16 @@ interface DatabaseInterface
 {
     /**
      * @param string $tableName
-     * @param array $criteria
+     * @param int $id
      *
      * @return array
      */
-    public function select(string $tableName, array $criteria);
+    public function find(string $tableName, int $id);
 
     /**
      * @param string $tableName
-     * @param array $criteria
+     * @param int $id
      * @param array $values
      */
-    public function update(string $tableName, array $criteria, array $values);
+    public function update(string $tableName, int $id, array $values);
 }

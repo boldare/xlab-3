@@ -23,9 +23,9 @@ class UserRepository implements UserRepositoryInterface
     /**
      * {@inheritdoc}
      */
-    public function find(int $id)
+    public function findUser(int $id)
     {
-        $data = $this->database->select('users', compact('id'));
+        $data = $this->database->find('users', $id);
 
         return new User($data['id'], $data['email'], $data['avatar_path']);
     }
@@ -33,11 +33,11 @@ class UserRepository implements UserRepositoryInterface
     /**
      * {@inheritdoc}
      */
-    public function save(User $user)
+    public function saveUser(User $user)
     {
         $this->database->update(
             'users',
-            ['id' => $user->getId()],
+            $user->getId(),
             [
                 'email' => $user->getEmail(),
                 'avatar_path' => $user->getAvatarPath(),
