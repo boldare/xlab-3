@@ -22,42 +22,19 @@ class DatabaseDoctrineDBALAdapter implements DatabaseInterface
     /**
      * {@inheritdoc}
      */
-    public function select(string $tableName, array $criteria)
+    public function find(string $tableName, int $id)
     {
         return $this->connection->fetchAssoc(
-            $this->prepareSelectQuery($tableName, $criteria),
-            $criteria
+            sprintf('SELECT * FROM %s WHERE id = :id', $tableName),
+            compact('id')
         );
     }
 
     /**
      * {@inheritdoc}
      */
-    public function update(string $tableName, array $criteria, array $values)
+    public function update(string $tableName, int $id, array $values)
     {
-        $this->connection->update($tableName, $values, $criteria);
-    }
-
-    /**
-     * @param string $tableName
-     * @param array $criteria
-     *
-     * @return string
-     */
-    private function prepareSelectQuery(string $tableName, array $criteria)
-    {
-        $query = sprintf('SELECT * FROM %s', $tableName);
-
-        if (empty($criteria)) {
-            return;
-        }
-
-        $query .= ' WHERE ';
-
-        foreach (array_keys($criteria) as $columnName) {
-            $query .= sprintf('%s = :%s', $columnName, $columnName);
-        }
-
-        return $query;
+        $this->connection->update($tableName, $values, compact('id'));
     }
 }
