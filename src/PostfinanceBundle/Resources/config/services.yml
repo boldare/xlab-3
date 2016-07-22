@@ -1,0 +1,31 @@
+parameters:
+    postfinance.request_builder.class: PostfinanceBundle\Builder\PostFinanceRequestBuilder
+    postfinance.gateway.class: PostfinanceBundle\Service\Gateway
+    postfinance.gateway_validator.class: PostfinanceBundle\Service\GatewayValidator
+    postfinance.subscription_plan_dto_factory.class: PostfinanceBundle\Factory\SubscriptionPlanDTOFactory
+
+services:
+    postfinance.request_builder:
+        class: '%postfinance.request_builder.class%'
+        arguments:
+            - '%postfinance%'
+        public: false
+
+    postfinance.gateway:
+        class: '%postfinance.gateway.class%'
+        arguments:
+            - '@postfinance.request_builder'
+            - '@postfinance.subscription_plan_dto_factory'
+            - '@router'
+
+    postfinance.gateway_validator:
+        class: '%postfinance.gateway_validator.class%'
+        arguments:
+            - '%postfinance%'
+
+    postfinance.subscription_plan_dto_factory:
+        class: '%postfinance.subscription_plan_dto_factory.class%'
+        arguments:
+            - '%default_currency%'
+            - '%vat_rate%'
+        public: false

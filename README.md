@@ -1,2 +1,4 @@
-# xlab-3
-XLab #3 - Unit Testing
+unit_test_workshop
+==================
+
+A Symfony project created on July 13, 2016, 10:04 am.
