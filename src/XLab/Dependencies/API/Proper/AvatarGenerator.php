@@ -32,6 +32,10 @@ class AvatarGenerator implements AvatarGeneratorInterface
      */
     public function generate(User $user)
     {
-        // @TODO
+        $avatar = $this->retriever->getAvatar($user);
+        $filepath = $this->storage->store($avatar);
+        $user->setAvatarPath($filepath);
+
+        return $filepath;
     }
 }

@@ -18,7 +18,7 @@ class Avatar
      * @param string $name
      * @param string $content
      */
-    public function __construct(string $name, string $content)
+    public function __construct($name, $content)
     {
         $this->name = $name;
         $this->content = $content;

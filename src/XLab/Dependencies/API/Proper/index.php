@@ -10,10 +10,10 @@ use XLab\Dependencies\API\User;
 $user = new User(1, 'user@example.com');
 
 $adorableAvatarsApiUrl = 'https://api.adorable.io/avatars/285';
-$retriever = new AdorableAvatarsApiRetriever();
+$retriever = new AdorableAvatarsApiRetriever($adorableAvatarsApiUrl);
 
 $avatarsDirectory = __DIR__ . '/../avatars';
-$storage = new AvatarFileStorage();
+$storage = new AvatarFileStorage($avatarsDirectory);
 
 $avatarGenerator = new AvatarGenerator($retriever, $storage);
 $avatarPath = $avatarGenerator->generate($user);
