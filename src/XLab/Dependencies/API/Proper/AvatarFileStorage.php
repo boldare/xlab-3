@@ -22,7 +22,7 @@ class AvatarFileStorage implements AvatarStorageInterface
      * @param Filesystem $filesystem
      * @param string $directory
      */
-    public function __construct(Filesystem $filesystem, string $directory)
+    public function __construct(Filesystem $filesystem, $directory)
     {
         $this->filesystem = $filesystem;
         $this->directory = $directory;
@@ -44,7 +44,7 @@ class AvatarFileStorage implements AvatarStorageInterface
      * @param string $avatarPath
      * @param Avatar $avatar
      */
-    private function saveToFile(string $avatarPath, Avatar $avatar)
+    private function saveToFile($avatarPath, Avatar $avatar)
     {
         $this->filesystem->touch($avatarPath);
         $this->filesystem->dumpFile($avatarPath, $avatar->getContent());

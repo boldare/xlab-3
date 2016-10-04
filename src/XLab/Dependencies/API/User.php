@@ -24,7 +24,7 @@ class User
      * @param string $email
      * @param string|null $avatarPath
      */
-    public function __construct(int $id, string $email, string $avatarPath = null)
+    public function __construct($id, $email, $avatarPath = null)
     {
         $this->id = $id;
         $this->email = $email;
@@ -58,7 +58,7 @@ class User
     /**
      * @param string|null $avatarPath
      */
-    public function setAvatarPath(string $avatarPath = null)
+    public function setAvatarPath($avatarPath = null)
     {
         $this->avatarPath = $avatarPath;
     }
