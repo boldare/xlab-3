@@ -11,7 +11,7 @@ interface UserRepositoryInterface
      *
      * @return User
      */
-    public function findUser(int $id);
+    public function findUser($id);
 
     /**
      * @param User $user

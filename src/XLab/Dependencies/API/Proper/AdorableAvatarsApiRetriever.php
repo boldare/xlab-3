@@ -23,7 +23,7 @@ class AdorableAvatarsApiRetriever implements AvatarRetrieverInterface
      * @param ClientInterface $client
      * @param string $uri
      */
-    public function __construct(ClientInterface $client, string $uri)
+    public function __construct(ClientInterface $client, $uri)
     {
         $this->client = $client;
         $this->uri = $uri;

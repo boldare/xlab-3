@@ -15,7 +15,7 @@ class UserRepository implements UserRepositoryInterface
     /**
      * @param string $databasePath
      */
-    public function __construct(string $databasePath)
+    public function __construct($databasePath)
     {
         $this->databasePath = $databasePath;
     }
@@ -23,7 +23,7 @@ class UserRepository implements UserRepositoryInterface
     /**
      * {@inheritdoc}
      */
-    public function findUser(int $id)
+    public function findUser($id)
     {
         $db = $this->openConnection();
         $stmt = $db->prepare('SELECT * FROM users WHERE id = :id');
