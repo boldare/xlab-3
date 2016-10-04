@@ -26,7 +26,7 @@ class BlogPost implements TaggableInterface
      * @param string $content
      * @param string $author
      */
-    public function __construct(string $title, string $content, string $author)
+    public function __construct($title, $content, $author)
     {
         $this->title = $title;
         $this->content = $content;

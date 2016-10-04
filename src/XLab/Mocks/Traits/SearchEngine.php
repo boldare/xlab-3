@@ -22,7 +22,7 @@ class SearchEngine
      *
      * @return \Traversable
      */
-    public function search(string $query)
+    public function search($query)
     {
         foreach ($this->items as $item) {
             if (!in_array($query, $item->getTags())) {

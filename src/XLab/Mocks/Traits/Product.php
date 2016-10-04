@@ -26,7 +26,7 @@ class Product implements TaggableInterface
      * @param string $category
      * @param int $price
      */
-    public function __construct(string $name, string $category, int $price)
+    public function __construct($name, $category, $price)
     {
         $this->name = $name;
         $this->category = $category;
