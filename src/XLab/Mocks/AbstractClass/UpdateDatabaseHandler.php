@@ -26,6 +26,6 @@ class UpdateDatabaseHandler extends AbstractChainedUserAvatarChangeHandler imple
      */
     public function doHandle(Avatar $avatar, User $user)
     {
-        $this->userRepository->save($user);
+        $this->userRepository->saveUser($user);
     }
 }

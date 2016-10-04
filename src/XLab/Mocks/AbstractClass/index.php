@@ -22,7 +22,7 @@ $dbHandler = new UpdateDatabaseHandler($repository);
 $storeHandler = new StoreAvatarHandler($storage);
 $storeHandler->append($dbHandler);
 
-$user = $repository->find(1);
+$user = $repository->findUser(1);
 $avatar = $retriever->getAvatar($user);
 
 $storeHandler->handle($avatar, $user);
