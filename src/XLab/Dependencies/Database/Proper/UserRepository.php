@@ -23,7 +23,7 @@ class UserRepository implements UserRepositoryInterface
     /**
      * {@inheritdoc}
      */
-    public function findUser(int $id)
+    public function findUser($id)
     {
         // @TODO
     }

@@ -7,7 +7,7 @@ class SQLiteDatabase implements DatabaseInterface
     /**
      * {@inheritdoc}
      */
-    public function find(string $tableName, int $id)
+    public function find($tableName, $id)
     {
         // @TODO
     }
@@ -15,7 +15,7 @@ class SQLiteDatabase implements DatabaseInterface
     /**
      * {@inheritdoc}
      */
-    public function update(string $tableName, int $id, array $values)
+    public function update($tableName, $id, array $values)
     {
         // @TODO
     }
