@@ -10,12 +10,12 @@ interface DatabaseInterface
      *
      * @return array
      */
-    public function find(string $tableName, int $id);
+    public function find($tableName, $id);
 
     /**
      * @param string $tableName
      * @param int $id
      * @param array $values
      */
-    public function update(string $tableName, int $id, array $values);
+    public function update($tableName, $id, array $values);
 }

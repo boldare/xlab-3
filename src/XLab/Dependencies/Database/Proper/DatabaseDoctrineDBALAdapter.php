@@ -22,7 +22,7 @@ class DatabaseDoctrineDBALAdapter implements DatabaseInterface
     /**
      * {@inheritdoc}
      */
-    public function find(string $tableName, int $id)
+    public function find($tableName, $id)
     {
         return $this->connection->fetchAssoc(
             sprintf('SELECT * FROM %s WHERE id = :id', $tableName),
@@ -33,7 +33,7 @@ class DatabaseDoctrineDBALAdapter implements DatabaseInterface
     /**
      * {@inheritdoc}
      */
-    public function update(string $tableName, int $id, array $values)
+    public function update($tableName, $id, array $values)
     {
         $this->connection->update($tableName, $values, compact('id'));
     }
