@@ -6,17 +6,17 @@ use XLab\Dependencies\Database\Proper\SQLiteDatabase;
 use XLab\Dependencies\Database\Proper\UserRepository;
 
 $databasePath = __DIR__ . '/../db.sqlite';
-$database = new SQLiteDatabase();
+$database = new SQLiteDatabase($databasePath);
 
 $repository = new UserRepository($database);
 
-$user = $repository->find(1);
+$user = $repository->findUser(1);
 var_dump($user);
 
 $user->setAvatarPath(__DIR__ .'/../../API/avatars/1.png');
-$repository->save($user);
-var_dump($repository->find(1));
+$repository->saveUser($user);
+var_dump($repository->findUser(1));
 
 $user->setAvatarPath();
-$repository->save($user);
-var_dump($repository->find(1));
+$repository->saveUser($user);
+var_dump($repository->findUser(1));
