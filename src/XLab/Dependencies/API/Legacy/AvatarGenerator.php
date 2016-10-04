@@ -17,7 +17,7 @@ class AvatarGenerator implements AvatarGeneratorInterface
     /**
      * @param string $directoryPath
      */
-    public function __construct(string $directoryPath)
+    public function __construct($directoryPath)
     {
         $this->directoryPath = $directoryPath;
     }
@@ -52,7 +52,7 @@ class AvatarGenerator implements AvatarGeneratorInterface
      * @param string $data
      * @param string $path
      */
-    private function store(string $data, string $path)
+    private function store($data, $path)
     {
         file_put_contents($path, $data);
     }
