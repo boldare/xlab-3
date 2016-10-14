@@ -2,41 +2,51 @@
 
 namespace Xlab;
 
-use Xlab\Service\ProductsPromotionApplier;
-use Xlab\Service\ProductsSorter;
-use Xlab\Service\ProductsTransformer;
+use Xlab\Service\ProductsPromotionApplierInterface;
+use Xlab\Service\ProductsSorterInterface;
+use Xlab\Service\ProductsTransformerInterface;
 
 class ProductsListing
 {
-	/**
-	 * @var ProductsSorter
-	 */
-	protected $productsSorter;
+    /**
+     * @var ProductsSorterInterface
+     */
+    protected $productsSorter;
 
-	/**
-	 * @var ProductsPromotionApplier
-	 */
-	protected $productsPromotionApplier;
+    /**
+     * @var ProductsPromotionApplierInterface
+     */
+    protected $productsPromotionApplier;
 
-	/**
-	 * @var ProductsTransformer
-	 */
-	protected $productsTransformer;
+    /**
+     * @var ProductsTransformerInterface
+     */
+    protected $productsTransformer;
 
-	public function __construct()
-	{
-		$this->productsSorter = new ProductsSorter();
-		$this->productsPromotionApplier = new ProductsPromotionApplier();
-		$this->productsTransformer = new ProductsTransformer();
-	}
+    /**
+     * @param ProductsSorterInterface $productsSorter
+     * @param ProductsPromotionApplierInterface $productsPromotionApplier
+     * @param ProductsTransformerInterface $productsTransformer
+     */
+    public function __construct(
+        ProductsSorterInterface $productsSorter,
+        ProductsPromotionApplierInterface $productsPromotionApplier,
+        ProductsTransformerInterface $productsTransformer
+    ) {
+        $this->productsSorter = $productsSorter;
+        $this->productsPromotionApplier = $productsPromotionApplier;
+        $this->productsTransformer = $productsTransformer;
+    }
 
-	/**
-	 * @param Product[] $products
-	 *
-	 * @return string
-	 */
-	public function showProducts(array $products)
-	{
-		// @todo
-	}
+    /**
+     * @param Product[] $products
+     *
+     * @return string
+     */
+    public function showProducts(array $products)
+    {
+        // @todo
+        // use productsSorter, productsPromotionApplier and productsTransformer
+        // and return html representation for the products
+    }
 }

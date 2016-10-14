@@ -2,7 +2,7 @@
 
 namespace Xlab\Service;
 
-interface ProductsTransformerInterface
+class ProductsTransformer implements ProductsTransformerInterface
 {
     /**
      * transforms products list to an html representation
@@ -11,5 +11,8 @@ interface ProductsTransformerInterface
      *
      * @return \Xlab\Product[]
      */
-    public function transformToHtml(array $products);
+    public function transformToHtml(array $products)
+    {
+        // @todo
+    }
 }

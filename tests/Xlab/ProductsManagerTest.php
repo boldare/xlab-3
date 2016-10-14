@@ -29,18 +29,6 @@ class ProductsManagerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Xlab\ProductsManager::a
-     * @todo   Implement testA().
-     */
-    public function testA()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
      * @covers Xlab\ProductsManager::showProducts
      * @todo   Implement testShowProducts().
      */
