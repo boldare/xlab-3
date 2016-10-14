@@ -2,21 +2,21 @@
 
 namespace Xlab\Service;
 
-class ProductsTransformer
+class ProductsTransformer implements ProductsTransformerInterface
 {
 	public function transformToHtml(array $products)
 	{
-		$html = "<html>\n\t<body>\n";
+		$html = "<ol>";
 		foreach ($products as $product)
 		{
 			$html .= sprintf(
-				"\t\t<div%s>%s (%s)</div>\n",
+				"<li%s>%s (%s)</li>\n",
 				$product->isPromoted() ? ' class="promoted"' : '',
 				$product->getName(),
 				$product->getPrice() / 100
 			);
 		}
-		$html .= "\t</body>\n</html>";
+		$html .= "</ol>";
 
 		return $html;
 	}

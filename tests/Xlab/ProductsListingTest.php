@@ -2,6 +2,10 @@
 
 namespace Xlab;
 
+use Xlab\Service\ProductsPromotionApplier;
+use Xlab\Service\ProductsSorter;
+use Xlab\Service\ProductsTransformer;
+
 class ProductsListingTest extends \PHPUnit_Framework_TestCase
 {
 	/**
@@ -9,9 +13,32 @@ class ProductsListingTest extends \PHPUnit_Framework_TestCase
 	 */
 	protected $productsListing;
 
+	/**
+	 * @var ProductsSorter|\PHPUnit_Framework_MockObject_MockObject
+	 */
+	protected $productsSorter;
+
+	/**
+	 * @var ProductsPromotionApplier|\PHPUnit_Framework_MockObject_MockObject
+	 */
+	protected $productsPromotionApplier;
+
+	/**
+	 * @var ProductsTransformer|\PHPUnit_Framework_MockObject_MockObject
+	 */
+	protected $productsTransformer;
+
 	public function setUp()
 	{
-		$this->productsListing = new ProductsListing();
+		$this->productsSorter = $this->createMock(ProductsSorter::class);
+		$this->productsPromotionApplier = $this->createMock(ProductsPromotionApplier::class);
+		$this->productsTransformer = $this->createMock(ProductsTransformer::class);
+
+		$this->productsListing = new ProductsListing(
+			$this->productsSorter,
+			$this->productsPromotionApplier,
+			$this->productsTransformer
+		);
 	}
 
 	public function testShowProducts()
@@ -21,11 +48,29 @@ class ProductsListingTest extends \PHPUnit_Framework_TestCase
 
 		$products = array($product1, $product2);
 
+		$this->productsSorter
+			->expects($this->once())
+			->method('sort')
+			->with($products)
+			->willReturn($products);
+
+		$this->productsPromotionApplier
+			->expects($this->once())
+			->method('apply')
+			->with($products)
+			->willReturn($products);
+
+		$this->productsTransformer
+			->expects($this->once())
+			->method('transformToHtml')
+			->with($products)
+			->willReturn('someHtml');
+
 		$html = $this->productsListing->showProducts($products);
 
 		$this->assertSame(
-			'<html><body><div class="promoted">Warcraft 3 (19.99)</div><div>World of Warcraft (59.99)</div></body></html>',
-			str_replace(["\n", "\t"], '', $html),
+			'someHtml',
+			$html,
 			'Products are listed correctly'
 		);
 	}

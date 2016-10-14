@@ -6,6 +6,9 @@ use Xlab\Product;
 
 class ProductsPromotionApplierTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var ProductsPromotionApplier
+     */
 	protected $productsPromotionApplier;
 
 	public function setUp()

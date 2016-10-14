@@ -2,7 +2,7 @@
 
 namespace Xlab\Service;
 
-class ProductsPromotionApplier
+class ProductsPromotionApplier implements ProductsPromotionApplierInterface
 {
 	public function apply(array $products)
 	{

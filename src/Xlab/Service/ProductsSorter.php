@@ -4,7 +4,7 @@ namespace Xlab\Service;
 
 use Xlab\Product;
 
-class ProductsSorter
+class ProductsSorter implements ProductsSorterInterface
 {
 	public function sort(array $products)
 	{

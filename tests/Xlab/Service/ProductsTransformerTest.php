@@ -6,6 +6,9 @@ use Xlab\Product;
 
 class ProductsTransformerTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var ProductsTransformer
+     */
 	protected $productsTransformer;
 
 	public function setUp()
@@ -23,7 +26,7 @@ class ProductsTransformerTest extends \PHPUnit_Framework_TestCase
 		$html = $this->productsTransformer->transformToHtml($products);
 
 		$this->assertSame(
-			'<html><body><div>Warcraft 3 (19.99)</div><div>World of Warcraft (59.99)</div></body></html>',
+			'<ol><li>Warcraft 3 (19.99)</li><li>World of Warcraft (59.99)</li></ol>',
 			str_replace(["\n", "\t"], '', $html),
 			'Products are transformed to HTML'
 		);

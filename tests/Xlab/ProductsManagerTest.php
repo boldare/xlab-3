@@ -21,7 +21,7 @@ class ProductsManagerTest extends \PHPUnit_Framework_TestCase
 		$html = $this->productsManager->showProducts($products);
 
 		$this->assertSame(
-			'<html><body><div class="promoted">Warcraft 3 (19.99)</div><div>World of Warcraft (59.99)</div></body></html>',
+			'<ol><li class="promoted">Warcraft 3 (19.99)</li><li>World of Warcraft (59.99)</li></ol>',
 			str_replace(["\n", "\t"], '', $html),
 			'Products are listed correctly'
 		);
