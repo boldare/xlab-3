@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../../../../vendor/autoload.php';
 use XLab\Dependencies\API\Legacy\AvatarGenerator;
 use XLab\Dependencies\API\User;
 
-$user = new User(1, 'user@example.com');
+$user = new User(1, 'user2@example.com');
 $avatarGenerator = new AvatarGenerator(__DIR__ . '/../avatars');
 
 $avatarPath = $avatarGenerator->generate($user);
